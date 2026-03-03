@@ -2,169 +2,558 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soowigs Admin — Dashboard</title>
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="css/admin.css" />
-</head>
-
-<body>
-    <!-- Simple Admin Branding -->
-    <div id="adminApp" class="admin-app">
-        <aside class="sidebar">
-            <div class="sidebar-logo">
-                <span style="color:#9D306C">Soo</span><span style="color:#E79AB3">Wigs</span> Admin
-            </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="active">📊 Dashboard</a>
-                <a href="#">💎 Products</a>
-                <a href="#">📦 Orders</a>
-                <a href="#">👥 Customers</a>
-                <a href="#">⚙️ Settings</a>
-            </nav>
-        </aside>
-
-        <main class="main-content">
-            <header class="topbar">
-                <div class="topbar-title">Dashboard Overview</div>
-                <div class="admin-profile">Admin</div>
-            </header>
-
-            <section class="page dashboard">
-                <div class="kpi-grid">
-                    <div class="kpi-card">
-                        <small>Revenue</small>
-                        <h2>4,500,000 FCFA</h2>
-                    </div>
-                    <div class="kpi-card">
-                        <small>Orders</small>
-                        <h2>124</h2>
-                    </div>
-                    <div class="kpi-card">
-                        <small>Customers</small>
-                        <h2>892</h2>
-                    </div>
-                </div>
-
-                <div class="chart-section">
-                    <canvas id="revenueChart"></canvas>
-                </div>
-            </section>
-        </main>
-    </div>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration SooWigs — Luxe & Excellence</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --admin-primary: #9D306C;
-            --admin-bg: #f5f6f9;
+            --gold: #C5A059;
+            --ebony: #1A1A1A;
+            --white: #FFFFFF;
+            --light-gray: #F8F4F0;
+            --border: #E5E1DD;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--admin-bg);
-            margin: 0;
-        }
-
-        .admin-app {
+            font-family: 'Outfit', sans-serif;
+            background: var(--light-gray);
+            color: var(--ebony);
             display: flex;
             height: 100vh;
+            overflow: hidden;
         }
 
+        /* SIDEBAR */
         .sidebar {
-            width: 250px;
-            background: #fff;
-            border-right: 1px solid #ddd;
-            padding: 20px;
+            width: 280px;
+            background: var(--ebony);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            transition: var(--transition);
+        }
+
+        .sidebar-header {
+            padding: 0 30px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
         }
 
         .sidebar-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .sidebar-nav a {
-            display: block;
-            padding: 12px;
-            color: #444;
+        .sidebar-nav {
+            flex: 1;
+        }
+
+        .nav-item {
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            margin-bottom: 5px;
-            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
         }
 
-        .sidebar-nav a.active {
-            background: var(--admin-primary);
-            color: #fff;
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--gold);
         }
 
-        .main-content {
+        .sidebar-footer {
+            padding: 20px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* MAIN CONTENT */
+        .main-container {
             flex: 1;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
         }
 
-        .topbar {
-            background: #fff;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
+        header {
+            height: 80px;
+            background: var(--white);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* PAGES */
+        .content-padding {
+            padding: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card small {
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+        }
+
+        .stat-card h2 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+            color: var(--ebony);
+        }
+
+        .stat-card .trend {
+            font-size: 0.85rem;
+            color: #27ae60;
+        }
+
+        /* TABLES & FORMS */
+        .table-container {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .table-header {
             display: flex;
             justify-content: space-between;
-        }
-
-        .page {
-            padding: 30px;
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            align-items: center;
             margin-bottom: 30px;
         }
 
-        .kpi-card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .kpi-card h2 {
-            color: var(--admin-primary);
-            margin: 5px 0 0;
+        th {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            color: #888;
+            font-size: 0.85rem;
+            text-transform: uppercase;
         }
 
-        .chart-section {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-cat {
+            background: var(--light-gray);
+            color: var(--gold);
+        }
+
+        .badge-stock {
+            background: rgba(39, 174, 96, 0.1);
+            color: #27ae60;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--ebony);
+        }
+
+        .btn-gold:hover {
+            background: var(--ebony);
+            color: var(--gold);
+        }
+
+        /* MODAL */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .actions-cell {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .action-btn:hover {
+            color: var(--gold);
         }
     </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">SOOWIGS</div>
+            <p style="font-size:0.7rem; color:var(--gold); margin-top:5px;">BACKOFFICE LUXE</p>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-item active" onclick="showPage('dashboard')">📊 Tableau de Bord</div>
+            <div class="nav-item" onclick="showPage('products')">💎 Catalogue Produits</div>
+            <div class="nav-item" onclick="showPage('categories')">📁 Catégories</div>
+            <div class="nav-item" onclick="showPage('orders')">📦 Commandes VIP</div>
+            <div class="nav-item" onclick="showPage('users')">👥 Gestion Clients</div>
+            <div class="nav-item" onclick="showPage('settings')">⚙️ Paramètres</div>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="/" style="color:var(--gold); text-decoration:none; font-size:0.8rem;">← Voir la boutique</a>
+        </div>
+    </aside>
+
+    <div class="main-container">
+        <header>
+            <div class="page-title" id="currentPageTitle">Tableau de Bord</div>
+            <div class="admin-profile">
+                <span>Directeur Artistique</span>
+                <div class="profile-circle">AD</div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD PAGE -->
+        <div id="dashboardPage" class="page content-padding">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <small>Ventes du mois</small>
+                    <h2>5.450.000 FCFA</h2>
+                    <span class="trend">↑ 12% vs mois dernier</span>
+                </div>
+                <div class="stat-card">
+                    <small>Panier Moyen</small>
+                    <h2>165.000 FCFA</h2>
+                    <span class="trend">↑ 5%</span>
+                </div>
+                <div class="stat-card">
+                    <small>Commandes en cours</small>
+                    <h2>24</h2>
+                    <span style="color:#f39c12">En préparation</span>
+                </div>
+                <div class="stat-card">
+                    <small>Nouveaux Clients</small>
+                    <h2>42</h2>
+                    <span class="trend">↑ 20%</span>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>Ventes Récentes</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID ODR</th>
+                            <th>CLIENTE</th>
+                            <th>PRODUIT</th>
+                            <th>PRIX</th>
+                            <th>STATUT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1024</td>
+                            <td>Fatou Diop</td>
+                            <td>Pure Indian Raw</td>
+                            <td>185.000 FCFA</td>
+                            <td><span class="badge badge-stock">Payé</span></td>
+                        </tr>
+                        <tr>
+                            <td>#1023</td>
+                            <td>Amina Sow</td>
+                            <td>Robe Gala Satin</td>
+                            <td>125.000 FCFA</td>
+                            <td><span class="badge" style="background:rgba(243, 156, 18, 0.1); color:#f39c12">En
+                                    attente</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PRODUCTS PAGE -->
+        <div id="productsPage" class="page content-padding" style="display:none">
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>Gestion du Catalogue</h3>
+                    <button class="btn btn-gold" onclick="openModal('product')">+ Nouveau Produit</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>IMAGE</th>
+                            <th>NOM DU PRODUIT</th>
+                            <th>CATÉGORIE</th>
+                            <th>PRIX (FCFA)</th>
+                            <th>STOCK</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                        <!-- Dynamique JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CATEGORIES PAGE -->
+        <div id="categoriesPage" class="page content-padding" style="display:none">
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>Catégories de Luxe</h3>
+                    <button class="btn btn-gold">+ Nouvelle Catégorie</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NOM</th>
+                            <th>NB PRODUITS</th>
+                            <th>ORDRE D'AFFICHAGE</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chevelure</td>
+                            <td>8</td>
+                            <td>1</td>
+                            <td class="actions-cell"><button class="action-btn">Modifier</button></td>
+                        </tr>
+                        <tr>
+                            <td>Lingerie</td>
+                            <td>5</td>
+                            <td>2</td>
+                            <td class="actions-cell"><button class="action-btn">Modifier</button></td>
+                        </tr>
+                        <tr>
+                            <td>Robes</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td class="actions-cell"><button class="action-btn">Modifier</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL AJOUT PROD -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <h2 style="font-family:'Playfair Display'; margin-bottom:30px;">Ajouter une création</h2>
+            <form onsubmit="saveProduct(event)">
+                <div class="form-group">
+                    <label>Nom de la pièce</label>
+                    <input type="text" id="p_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Catégorie</label>
+                    <select id="p_cat">
+                        <option>Chevelure</option>
+                        <option>Lingerie</option>
+                        <option>Robes</option>
+                        <option>Accessoires</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Prix (FCFA)</label>
+                    <input type="number" id="p_price" required>
+                </div>
+                <div class="form-group">
+                    <label>URL de l'image (Exclusivité Noire)</label>
+                    <input type="text" id="p_img" required>
+                </div>
+                <div style="display:flex; justify-content:flex-end; gap:15px; margin-top:30px;">
+                    <button type="button" class="btn" onclick="closeModal()">Annuler</button>
+                    <button type="submit" class="btn btn-gold">Enregistrer la pièce</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script>
-        const ctx = document.getElementById('revenueChart');
-        if (ctx) {
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                    datasets: [{
-                        label: 'Revenue (FCFA)',
-                        data: [1200000, 1900000, 3000000, 2500000, 4200000, 4500000],
-                        borderColor: '#9D306C',
-                        backgroundColor: 'rgba(157, 48, 108, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    }]
-                }
-            });
+        // DONNÉES LOCALSTORAGE (SIMULATION DB)
+        let localProducts = JSON.parse(localStorage.getItem('soowigs_prods')) || [
+            { name: "Pure Indian Raw", cat: "Chevelure", price: 185000, img: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?q=80&w=100" },
+            { name: "Robe de Gala Elite", cat: "Robes", price: 155000, img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=100" }
+        ];
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            document.getElementById(pageId + 'Page').style.display = 'block';
+            event.target.classList.add('active');
+
+            const titles = {
+                'dashboard': 'Tableau de Bord VIP',
+                'products': 'Management du Catalogue',
+                'categories': 'Structures des Collections',
+                'orders': 'Commandes & Suivi Logistique',
+                'users': 'Carnet d\'Adresses Clients',
+                'settings': 'Configuration Maison'
+            };
+            document.getElementById('currentPageTitle').innerText = titles[pageId];
+
+            if (pageId === 'products') renderAdminProducts();
+        }
+
+        function renderAdminProducts() {
+            const tbody = document.getElementById('productTableBody');
+            tbody.innerHTML = localProducts.map((p, index) => `
+                <tr>
+                    <td><img src="${p.img}" style="width:40px; height:50px; object-fit:cover; border-radius:4px;"></td>
+                    <td><strong>${p.name}</strong></td>
+                    <td><span class="badge badge-cat">${p.cat}</span></td>
+                    <td>${p.price.toLocaleString()} FCFA</td>
+                    <td> <span class="badge badge-stock">En Stock</span> </td>
+                    <td class="actions-cell">
+                        <button class="action-btn" onclick="deleteProd(${index})">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openModal(type) {
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        function saveProduct(e) {
+            e.preventDefault();
+            const newProd = {
+                name: document.getElementById('p_name').value,
+                cat: document.getElementById('p_cat').value,
+                price: parseInt(document.getElementById('p_price').value),
+                img: document.getElementById('p_img').value
+            };
+            localProducts.push(newProd);
+            localStorage.setItem('soowigs_prods', JSON.stringify(localProducts));
+            renderAdminProducts();
+            closeModal();
+            alert("Nouvelle pièce ajoutée au catalogue de luxe !");
+        }
+
+        function deleteProd(index) {
+            if (confirm("Supprimer cette pièce d'exception ?")) {
+                localProducts.splice(index, 1);
+                localStorage.setItem('soowigs_prods', JSON.stringify(localProducts));
+                renderAdminProducts();
+            }
         }
     </script>
 </body>
