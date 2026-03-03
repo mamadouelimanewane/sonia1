@@ -4,58 +4,53 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soowigs — Luxury Hair & Wigs Boutique</title>
+    <title>Soowigs Luxury — The Art of Elegance | Dakar</title>
     <meta name="description"
-        content="Soowigs, votre destination de luxe pour les perruques et extensions de cheveux haut de gamme. Qualité indienne et vietnamienne brute." />
+        content="Une expérience de luxe redéfinie. SooWigs vous propose le summum des perruques RAW, de la maroquinerie d'exception et de la beauté haute couture à Dakar." />
+
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
         rel="stylesheet" />
+
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-    <!-- ======================== ANNOUNCEMENT BAR ======================== -->
-    <div class="announcement-bar">
-        <div class="announcement-slider">
-            <span>✨ Livraison Express vers le Sénégal & l'International &nbsp;&nbsp;|&nbsp;&nbsp; 💖 The Brown Girls
-                just dropped! &nbsp;&nbsp;|&nbsp;&nbsp; 👑 Luxury hair begins here.</span>
-            <span>✨ Livraison Express vers le Sénégal & l'International &nbsp;&nbsp;|&nbsp;&nbsp; 💖 The Brown Girls
-                just dropped! &nbsp;&nbsp;|&nbsp;&nbsp; 👑 Luxury hair begins here.</span>
-        </div>
+    <!-- ======================== ANNOUNCEMENT ======================== -->
+    <div class="top-bar">
+        <span>✈️ EXPRESS DELIVERY TO DAKAR & INTERNATIONAL - LUXURY HAIR BEGINS HERE</span>
     </div>
 
     <!-- ======================== HEADER ======================== -->
     <header class="header">
-        <div class="header-inner">
-            <button class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </button>
-
+        <div class="container header-inner">
             <a href="#" class="logo">
-                <span class="logo-soo">Soo</span><span class="logo-wigs">Wigs</span>
+                SOO<span>WIGS</span>
             </a>
 
             <nav class="nav">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#shop" class="nav-link" onclick="renderProducts('All')">Shop All</a>
-                <a href="#shop" class="nav-link" onclick="renderProducts('Hair')">Wigs</a>
-                <a href="#shop" class="nav-link" onclick="renderProducts('Bags')">Bags</a>
-                <a href="#shop" class="nav-link" onclick="renderProducts('Lingerie')">Lingerie</a>
+                <a href="#" class="nav-link" onclick="renderProducts('All')">Home</a>
+                <a href="#shop" class="nav-link" onclick="renderProducts('Hair')">Hair</a>
+                <a href="#shop" class="nav-link" onclick="renderProducts('Bags')">Luxury Bags</a>
+                <a href="#shop" class="nav-link" onclick="renderProducts('Shoes')">Shoes</a>
                 <a href="#shop" class="nav-link" onclick="renderProducts('Beauty')">Beauty</a>
             </nav>
 
             <div class="header-actions">
-                <button class="icon-btn search-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="icon-btn search-btn" onclick="alert('Search feature under maintenance')">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
                         <circle cx="11" cy="11" r="8" />
                         <path d="m21 21-4.35-4.35" />
                     </svg>
                 </button>
-                <button class="icon-btn cart-btn" id="cartBtn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="icon-btn cart-btn" id="cartBtn" onclick="openCart()">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
                         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                         <line x1="3" y1="6" x2="21" y2="6" />
                         <path d="M16 10a4 4 0 0 1-8 0" />
@@ -68,48 +63,15 @@
 
     <!-- ======================== HERO ======================== -->
     <section class="hero">
-        <div class="hero-content">
-            <p class="hero-eyebrow">NewCollection 2026</p>
-            <h1 class="hero-title">It's Giving<br /><em>Main Character!</em></h1>
-            <p class="hero-sub">The Balayage Collection: Flawless blends, soft tones, and luxury vibes only.</p>
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=1600&auto=format&fit=crop"
+            class="hero-img-bg" alt="African Elegance">
+        <div class="container hero-content">
+            <p class="hero-eyebrow">Edition Limitée 2026</p>
+            <h1 class="hero-title">Redéfinir le <br />Luxury <em>LifeStyle</em></h1>
+            <p class="hero-sub">Des créations d'exception pour une femme d'exception. Découvrez l'alliance du Raw Hair
+                et de la maroquinerie haute couture.</p>
             <div class="hero-actions">
-                <a href="#shop" class="btn btn-primary">Shop The Collection</a>
-                <a href="#collections" class="btn btn-outline">Explore Styles</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================== CATEGORIES = :ROOT ======================== -->
-    <section class="section categories-section" id="collections">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Shop by Category</h2>
-            </div>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1595475884196-27382d8c3639?q=80&w=800&auto=format&fit=crop"
-                        alt="Brown Girls" />
-                    <div class="category-overlay">
-                        <h3>Brown Girls</h3>
-                        <a href="#" class="btn-shop">Shop Now</a>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop"
-                        alt="Balayage" />
-                    <div class="category-overlay">
-                        <h3>Balayage Collection</h3>
-                        <a href="#" class="btn-shop">Shop Now</a>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1595475884196-27382d8c3639?q=80&w=800&auto=format&fit=crop"
-                        alt="Indian Raw" />
-                    <div class="category-overlay">
-                        <h3>Indian Hair</h3>
-                        <a href="#" class="btn-shop">Shop Now</a>
-                    </div>
-                </div>
+                <a href="#shop" class="btn btn-primary">Explorer les Collections</a>
             </div>
         </div>
     </section>
@@ -117,31 +79,9 @@
     <!-- ======================== SHOP SECTION ======================== -->
     <section class="section" id="shop">
         <div class="container">
-            <div class="section-header">
-                <p class="section-eyebrow">The Luxury Edit</p>
-                <h2 class="section-title">Discover Our Collections</h2>
-                <div class="filter-bar">
-                    <button class="filter-btn active" onclick="setActiveFilter(this, 'All')">All</button>
-                    <button class="filter-btn" onclick="setActiveFilter(this, 'Hair')">Hair</button>
-                    <button class="filter-btn" onclick="setActiveFilter(this, 'Bags')">Bags</button>
-                    <button class="filter-btn" onclick="setActiveFilter(this, 'Lingerie')">Lingerie</button>
-                    <button class="filter-btn" onclick="setActiveFilter(this, 'Beauty')">Beauty</button>
-                </div>
-            </div>
+            <h2 class="section-title">La Selection Exclusive</h2>
             <div class="products-grid" id="productsGrid">
-                <!-- Products will be injected by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================== SUR MESURE ======================== -->
-    <section class="tailor-banner">
-        <div class="container">
-            <div class="tailor-content">
-                <h2>Custom Wig Construction</h2>
-                <p>Envoyez-nous vos mesures pour une perruque sur mesure parfaitement ajustée. Acompte de 30% requis.
-                </p>
-                <button class="btn btn-primary" onclick="openReservation(1)">Prendre mes Mesures ✂️</button>
+                <!-- Injected via JS -->
             </div>
         </div>
     </section>
@@ -151,65 +91,60 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo">SooWigs</a>
-                    <p>Luxury hair begins here. Premier destination for high-end wigs and raw hair in Dakar and beyond.
-                    </p>
+                    <h2 class="footer-logo">SOO<span>WIGS</span></h2>
+                    <p style="color: #666; font-size: 0.9rem; max-width: 300px;">Première destination de luxe pour les
+                        mèches Raw Hair, maroquinerie et produits de beauté haut de gamme à Dakar.</p>
                 </div>
-                <nav class="footer-nav">
-                    <div class="footer-col">
-                        <h4>Shop</h4>
-                        <a href="#">Wigs</a>
-                        <a href="#">Bundles</a>
-                        <a href="#">Closures</a>
+                <div class="footer-col">
+                    <h4>Collections</h4>
+                    <a href="#">Hair Extensions</a>
+                    <a href="#">Custom Wigs</a>
+                    <a href="#">Handbags</a>
+                    <a href="#">Heels</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Assistance</h4>
+                    <a href="#">Guide des tailles</a>
+                    <a href="#">Livraison express</a>
+                    <a href="#">Retours luxe</a>
+                    <a href="#">Contact VIP</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Boutique</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Dakar, Almadies <br />Corniche Ouest, Sénégal</p>
+                    <div style="margin-top: 20px;">
+                        <a href="#" style="display:inline-block; margin-right: 15px;">Instagram</a>
+                        <a href="#" style="display:inline-block;">WhatsApp</a>
                     </div>
-                    <div class="footer-col">
-                        <h4>Support</h4>
-                        <a href="#">Shipping</a>
-                        <a href="#">Returns</a>
-                        <a href="#">Contact</a>
-                    </div>
-                </nav>
+                </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Soowigs Luxury Hair. All rights reserved.</p>
+            <div style="text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid #333;">
+                <p style="font-size: 0.75rem; color: #666; letter-spacing: 0.1em;">© 2026 SOOWIGS LUXURY HOUSE. ALL
+                    RIGHTS RESERVED.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ======================== MODALS ======================== -->
-    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h3>Your Cart</h3>
-            <button onclick="closeCart()">✕</button>
+    <!-- ======================== CART DRAWER ======================== -->
+    <div class="overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="drawer" id="cartDrawer">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
+            <h3 style="font-family:var(--font-heading); font-size:2rem;">Votre Panier</h3>
+            <button onclick="closeCart()"
+                style="background:none; border:none; font-size:2rem; cursor:pointer;">✕</button>
         </div>
-        <div class="cart-body" id="cartBody"></div>
-        <div class="cart-footer" id="cartFooter" style="display:none">
-            <div class="cart-total">Total: <span id="cartTotal">0 FCFA</span></div>
-            <button class="btn btn-primary btn-full">Checkout</button>
-        </div>
-    </div>
-
-    <!-- Reservation Modal -->
-    <div class="reservation-overlay" id="reservationOverlay">
-        <div class="reservation-modal">
-            <button class="reservation-close" onclick="closeReservation()">✕</button>
-            <h3>Custom Construction</h3>
-            <p>Step 1: Contact Details</p>
-            <form id="reservationForm">
-                <div class="form-group">
-                    <input type="text" placeholder="First Name" required />
-                    <input type="text" placeholder="Last Name" required />
-                    <input type="tel" placeholder="Phone (WhatsApp)" required />
-                    <input type="text" placeholder="Address" required />
-                </div>
-                <button type="button" class="btn btn-primary" onclick="alert('Proceed to measurements Step 2')">Next
-                    Step</button>
-            </form>
+        <div id="cartBody"></div>
+        <div id="cartFooter" style="display:none; border-top:1px solid #eee; padding-top:30px; margin-top:30px;">
+            <div
+                style="display:flex; justify-content:space-between; font-size:1.25rem; font-weight:600; margin-bottom:30px;">
+                <span>TOTAL ESTIMÉ</span>
+                <span id="cartTotal" style="color:var(--gold)">0 FCFA</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%">PROCEDER AU PAIEMENT</button>
+            <p style="text-align:center; font-size:0.8rem; color:#999; margin-top:15px;">Paiement sécurisé via Wave ou
+                Orange Money</p>
         </div>
     </div>
-
-    <div class="toast" id="toast"></div>
 
     <script src="js/main.js"></script>
 </body>
