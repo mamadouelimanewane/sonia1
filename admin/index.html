@@ -296,7 +296,36 @@
 
 <body>
 
-    <aside class="sidebar">
+    <!-- ÉCRAN DE CONNEXION (LOGIN) -->
+    <div id="loginScreen"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--ebony); z-index:9999; display:flex; align-items:center; justify-content:center;">
+        <div
+            style="background:var(--white); padding:50px; border-radius:30px; width:90%; max-width:450px; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,0.5);">
+            <div class="sidebar-logo" style="margin-bottom:10px;">SOOWIGS</div>
+            <p
+                style="color:var(--gold); font-size:0.8rem; letter-spacing:2px; margin-bottom:40px; text-transform:uppercase;">
+                Accès Maison Privée</p>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group" style="text-align:left;">
+                    <label>Identifiant VIP</label>
+                    <input type="text" id="adminUser" placeholder="Nom d'utilisateur" required
+                        style="border:1px solid var(--border); background:var(--light-gray);">
+                </div>
+                <div class="form-group" style="text-align:left;">
+                    <label>Clef de Sécurité</label>
+                    <input type="password" id="adminPass" placeholder="••••••••" required
+                        style="border:1px solid var(--border); background:var(--light-gray);">
+                </div>
+                <button type="submit" class="btn btn-gold" style="width:100%; margin-top:20px; padding:18px;">SE
+                    CONNECTER</button>
+                <p id="loginError" style="color:#e74c3c; font-size:0.85rem; margin-top:15px; display:none;">Accès
+                    refusé. Vérifiez vos accréditations.</p>
+            </form>
+        </div>
+    </div>
+
+    <aside class="sidebar" id="mainSidebar" style="display:none;">
         <div class="sidebar-header">
             <div class="sidebar-logo">SOOWIGS</div>
             <p style="font-size:0.7rem; color:var(--gold); margin-top:5px;">BACKOFFICE LUXE</p>
@@ -314,7 +343,7 @@
         </div>
     </aside>
 
-    <div class="main-container">
+    <div class="main-container" id="mainContainer" style="display:none;">
         <header>
             <div class="page-title" id="currentPageTitle">Tableau de Bord</div>
             <div class="admin-profile">
@@ -484,6 +513,40 @@
     </div>
 
     <script>
+        // LOGIQUE DE SÉCURITÉ (LOGIN)
+        const ADMIN_CREDENTIALS = { user: "admin", pass: "admin_dakar" };
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('adminUser').value;
+            const p = document.getElementById('adminPass').value;
+            const error = document.getElementById('loginError');
+
+            if (u === ADMIN_CREDENTIALS.user && p === ADMIN_CREDENTIALS.pass) {
+                sessionStorage.setItem('soowigs_auth', 'true');
+                showAdminPanel();
+            } else {
+                error.style.display = 'block';
+            }
+        }
+
+        function showAdminPanel() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('mainSidebar').style.display = 'flex';
+            document.getElementById('mainContainer').style.display = 'flex';
+        }
+
+        function checkAuth() {
+            if (sessionStorage.getItem('soowigs_auth') === 'true') {
+                showAdminPanel();
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('soowigs_auth');
+            location.reload();
+        }
+
         // DONNÉES LOCALSTORAGE (SIMULATION DB)
         let localProducts = JSON.parse(localStorage.getItem('soowigs_prods')) || [
             { name: "Pure Indian Raw", cat: "Chevelure", price: 185000, img: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?q=80&w=100" },
@@ -494,7 +557,11 @@
             document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             document.getElementById(pageId + 'Page').style.display = 'block';
-            event.target.classList.add('active');
+
+            // Handle different event targets (direct click vs manual call)
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
 
             const titles = {
                 'dashboard': 'Tableau de Bord VIP',
@@ -511,6 +578,7 @@
 
         function renderAdminProducts() {
             const tbody = document.getElementById('productTableBody');
+            if (!tbody) return;
             tbody.innerHTML = localProducts.map((p, index) => `
                 <tr>
                     <td><img src="${p.img}" style="width:40px; height:50px; object-fit:cover; border-radius:4px;"></td>
@@ -555,7 +623,8 @@
                 renderAdminProducts();
             }
         }
-    </script>
-</body>
 
-</html>
+        window.onload = () => {
+            checkAuth();
+            renderAdminProducts();
+        };
