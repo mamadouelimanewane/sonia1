@@ -233,6 +233,46 @@ h3,
     color: var(--primary);
 }
 
+.category-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--primary);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 5;
+    text-transform: uppercase;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 8px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
 /* Tailor Banner */
 .tailor-banner {
     background: var(--primary);
@@ -279,20 +319,150 @@ h3,
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .nav {
-        display: none;
-    }
+/* Reservation Modal Enhancements */
+.reservation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 300;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--transition);
+}
 
-    .categories-grid {
+.reservation-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.reservation-modal {
+    background: var(--white);
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.reservation-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.steps-indicator {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.steps-indicator span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #ccc;
+    position: relative;
+}
+
+.steps-indicator span.active {
+    color: var(--primary);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-group.full {
+    grid-column: span 2;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-light);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.res-summary {
+    background: var(--accent);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.measure-guide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.guide-item {
+    text-align: center;
+}
+
+.guide-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.guide-item p {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+
+    .form-grid,
+    .form-grid-3,
+    .measure-guide {
         grid-template-columns: 1fr;
     }
 
-    .products-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
+    .reservation-modal {
+        padding: 25px;
     }
 }

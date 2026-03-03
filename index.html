@@ -40,10 +40,11 @@
 
             <nav class="nav">
                 <a href="#" class="nav-link">Home</a>
-                <a href="#shop" class="nav-link">Shop All</a>
-                <a href="#collections" class="nav-link">Collections</a>
-                <a href="#bestsellers" class="nav-link">Best Sellers</a>
-                <a href="#about" class="nav-link">Learn & Grow</a>
+                <a href="#shop" class="nav-link" onclick="renderProducts('All')">Shop All</a>
+                <a href="#shop" class="nav-link" onclick="renderProducts('Hair')">Wigs</a>
+                <a href="#shop" class="nav-link" onclick="renderProducts('Bags')">Bags</a>
+                <a href="#shop" class="nav-link" onclick="renderProducts('Lingerie')">Lingerie</a>
+                <a href="#shop" class="nav-link" onclick="renderProducts('Beauty')">Beauty</a>
             </nav>
 
             <div class="header-actions">
@@ -117,8 +118,15 @@
     <section class="section" id="shop">
         <div class="container">
             <div class="section-header">
-                <p class="section-eyebrow">Our Favourites</p>
-                <h2 class="section-title">Shop All Wigs</h2>
+                <p class="section-eyebrow">The Luxury Edit</p>
+                <h2 class="section-title">Discover Our Collections</h2>
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="setActiveFilter(this, 'All')">All</button>
+                    <button class="filter-btn" onclick="setActiveFilter(this, 'Hair')">Hair</button>
+                    <button class="filter-btn" onclick="setActiveFilter(this, 'Bags')">Bags</button>
+                    <button class="filter-btn" onclick="setActiveFilter(this, 'Lingerie')">Lingerie</button>
+                    <button class="filter-btn" onclick="setActiveFilter(this, 'Beauty')">Beauty</button>
+                </div>
             </div>
             <div class="products-grid" id="productsGrid">
                 <!-- Products will be injected by JS -->
