@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soowigs — Luxury Hair & Wigs Boutique</title>
+    <meta name="description"
+        content="Soowigs, votre destination de luxe pour les perruques et extensions de cheveux haut de gamme. Qualité indienne et vietnamienne brute." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ======================== ANNOUNCEMENT BAR ======================== -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <span>✨ Livraison Express vers le Sénégal & l'International &nbsp;&nbsp;|&nbsp;&nbsp; 💖 The Brown Girls
+                just dropped! &nbsp;&nbsp;|&nbsp;&nbsp; 👑 Luxury hair begins here.</span>
+            <span>✨ Livraison Express vers le Sénégal & l'International &nbsp;&nbsp;|&nbsp;&nbsp; 💖 The Brown Girls
+                just dropped! &nbsp;&nbsp;|&nbsp;&nbsp; 👑 Luxury hair begins here.</span>
+        </div>
+    </div>
+
+    <!-- ======================== HEADER ======================== -->
+    <header class="header">
+        <div class="header-inner">
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+
+            <a href="#" class="logo">
+                <span class="logo-soo">Soo</span><span class="logo-wigs">Wigs</span>
+            </a>
+
+            <nav class="nav">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#shop" class="nav-link">Shop All</a>
+                <a href="#collections" class="nav-link">Collections</a>
+                <a href="#bestsellers" class="nav-link">Best Sellers</a>
+                <a href="#about" class="nav-link">Learn & Grow</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn search-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                </button>
+                <button class="icon-btn cart-btn" id="cartBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================== HERO ======================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">NewCollection 2026</p>
+            <h1 class="hero-title">It's Giving<br /><em>Main Character!</em></h1>
+            <p class="hero-sub">The Balayage Collection: Flawless blends, soft tones, and luxury vibes only.</p>
+            <div class="hero-actions">
+                <a href="#shop" class="btn btn-primary">Shop The Collection</a>
+                <a href="#collections" class="btn btn-outline">Explore Styles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== CATEGORIES = :ROOT ======================== -->
+    <section class="section categories-section" id="collections">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1595475884196-27382d8c3639?q=80&w=800&auto=format&fit=crop"
+                        alt="Brown Girls" />
+                    <div class="category-overlay">
+                        <h3>Brown Girls</h3>
+                        <a href="#" class="btn-shop">Shop Now</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop"
+                        alt="Balayage" />
+                    <div class="category-overlay">
+                        <h3>Balayage Collection</h3>
+                        <a href="#" class="btn-shop">Shop Now</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1595475884196-27382d8c3639?q=80&w=800&auto=format&fit=crop"
+                        alt="Indian Raw" />
+                    <div class="category-overlay">
+                        <h3>Indian Hair</h3>
+                        <a href="#" class="btn-shop">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== SHOP SECTION ======================== -->
+    <section class="section" id="shop">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Our Favourites</p>
+                <h2 class="section-title">Shop All Wigs</h2>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== SUR MESURE ======================== -->
+    <section class="tailor-banner">
+        <div class="container">
+            <div class="tailor-content">
+                <h2>Custom Wig Construction</h2>
+                <p>Envoyez-nous vos mesures pour une perruque sur mesure parfaitement ajustée. Acompte de 30% requis.
+                </p>
+                <button class="btn btn-primary" onclick="openReservation(1)">Prendre mes Mesures ✂️</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">SooWigs</a>
+                    <p>Luxury hair begins here. Premier destination for high-end wigs and raw hair in Dakar and beyond.
+                    </p>
+                </div>
+                <nav class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Shop</h4>
+                        <a href="#">Wigs</a>
+                        <a href="#">Bundles</a>
+                        <a href="#">Closures</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <a href="#">Shipping</a>
+                        <a href="#">Returns</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Soowigs Luxury Hair. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================== MODALS ======================== -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="closeCart()">✕</button>
+        </div>
+        <div class="cart-body" id="cartBody"></div>
+        <div class="cart-footer" id="cartFooter" style="display:none">
+            <div class="cart-total">Total: <span id="cartTotal">0 FCFA</span></div>
+            <button class="btn btn-primary btn-full">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Reservation Modal -->
+    <div class="reservation-overlay" id="reservationOverlay">
+        <div class="reservation-modal">
+            <button class="reservation-close" onclick="closeReservation()">✕</button>
+            <h3>Custom Construction</h3>
+            <p>Step 1: Contact Details</p>
+            <form id="reservationForm">
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" required />
+                    <input type="text" placeholder="Last Name" required />
+                    <input type="tel" placeholder="Phone (WhatsApp)" required />
+                    <input type="text" placeholder="Address" required />
+                </div>
+                <button type="button" class="btn btn-primary" onclick="alert('Proceed to measurements Step 2')">Next
+                    Step</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
