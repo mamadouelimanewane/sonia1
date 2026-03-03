@@ -7,33 +7,33 @@ const PRODUCTS = [
   {
     id: 1,
     category: "Chevelure",
-    name: "Pure Indian Raw — Lisse Soyeux",
+    name: "Pure Indian Raw — Lisse Luxueux",
     price: 185000,
-    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?q=80&w=600&auto=format&fit=crop"
   },
   {
     id: 2,
     category: "Chevelure",
     name: "Vietnamese Super Double Drawn",
     price: 245000,
-    img: "https://images.unsplash.com/photo-1595152431003-7cb7f5bc6572?q=80&w=600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1531123897727-8f129e16f8ec?q=80&w=600&auto=format&fit=crop"
   },
 
   // LINGERIE
   {
     id: 7,
     category: "Lingerie",
-    name: "Ensemble Soie — Rouge Crimson",
+    name: "Ensemble Satin Royale — Rouge",
     price: 45000,
-    img: "https://images.unsplash.com/photo-1582533561751-ef6f6ab93a2e?q=80&w=600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?q=80&w=600&auto=format&fit=crop"
   },
 
   // ROBES
   {
     id: 10,
     category: "Robes",
-    name: "Robe de Gala — Satin Noir",
-    price: 125000,
+    name: "Robe de Gala — Haute Couture",
+    price: 155000,
     img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=600&auto=format&fit=crop"
   },
 
@@ -41,16 +41,16 @@ const PRODUCTS = [
   {
     id: 5,
     category: "Accessoires",
-    name: "Sac Safari Croco — Émeraude",
-    price: 85000,
+    name: "Sac Panthère Luxe — Émeraude",
+    price: 95000,
     img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=600&auto=format&fit=crop"
   },
   {
     id: 11,
     category: "Accessoires",
-    name: "Parure de Bijoux — Or 18K Style",
-    price: 55000,
-    img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop"
+    name: "Set Bijoux Or — Almadies Gold",
+    price: 75000,
+    img: "https://images.unsplash.com/photo-1614608682850-7f3931121145?q=80&w=600&auto=format&fit=crop"
   }
 ];
 
