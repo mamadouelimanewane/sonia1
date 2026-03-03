@@ -476,6 +476,104 @@
                 </table>
             </div>
         </div>
+
+        <!-- ORDERS PAGE -->
+        <div id="ordersPage" class="page content-padding" style="display:none">
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>Commandes VIP (Dernières 24h)</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>CLIENTE</th>
+                            <th>TOTAL</th>
+                            <th>PAIEMENT</th>
+                            <th>STATUT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1025</td>
+                            <td>Binetou S.</td>
+                            <td>450.000 FCFA</td>
+                            <td>Orange Money</td>
+                            <td><span class="badge badge-stock">Validé</span></td>
+                        </tr>
+                        <tr>
+                            <td>#1024</td>
+                            <td>Fatou Diop</td>
+                            <td>185.000 FCFA</td>
+                            <td>Wave</td>
+                            <td><span class="badge" style="background:#f39c12; color:white">En attente</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- USERS PAGE -->
+        <div id="usersPage" class="page content-padding" style="display:none">
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>Répertoire des Clientes d'Honneur</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NOM COMPLET</th>
+                            <th>CONTACT</th>
+                            <th>LOCALITÉ</th>
+                            <th>STRICTEMENT CONFIDENTIEL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mariama Diallo</td>
+                            <td>+221 77...</td>
+                            <td>Dakar, Almadies</td>
+                            <td>⭐ Membre Gold</td>
+                        </tr>
+                        <tr>
+                            <td>Awa Thiam</td>
+                            <td>+221 70...</td>
+                            <td>Saint-Louis</td>
+                            <td>Premium</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SETTINGS PAGE -->
+        <div id="settingsPage" class="page content-padding" style="display:none">
+            <div class="table-container" style="max-width: 800px;">
+                <h3 style="margin-bottom:30px;">Configuration de l'Écosystème</h3>
+                <form onsubmit="alert('Modifications enregistrées avec succès.'); return false;">
+                    <div class="form-group">
+                        <label>Message de la barre d'annonce</label>
+                        <input type="text" value="✈️ LIVRÉ EN 24H À DAKAR - LA QUALITÉ RAW HAIR SANS COMPROMIS">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact WhatsApp Central</label>
+                        <input type="tel" value="+221 77 123 45 67">
+                    </div>
+                    <div class="form-group">
+                        <label>Maintenance du site</label>
+                        <select>
+                            <option>Actif (Public)</option>
+                            <option>Maintenance (Privé)</option>
+                        </select>
+                    </div>
+                    <div style="margin-top:40px; display:flex; gap:20px;">
+                        <button type="submit" class="btn btn-gold">Sauvegarder</button>
+                        <button type="button" class="btn" style="background:#e74c3c; color:white;"
+                            onclick="logout()">DÉCONNEXION</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- MODAL AJOUT PROD -->

@@ -2,7 +2,8 @@
    SooWigs Luxury Lifestyle — Dakar Premium Catalog
    ========================================================================== */
 
-const PRODUCTS = [
+// INITIALISATION DU CATALOGUE DYNAMIQUE (Admin Sync)
+const DEFAULT_PRODUCTS = [
   // CHEVELURE / MECHES
   {
     id: 1,
@@ -53,6 +54,10 @@ const PRODUCTS = [
     img: "https://images.unsplash.com/photo-1614608682850-7f3931121145?q=80&w=600&auto=format&fit=crop"
   }
 ];
+
+// Fusionner les produits par défaut avec ceux ajoutés via le Backoffice
+let localAdminProds = JSON.parse(localStorage.getItem('soowigs_prods')) || [];
+const PRODUCTS = [...DEFAULT_PRODUCTS, ...localAdminProds.map((p, i) => ({ ...p, id: 1000 + i }))];
 
 let cart = [];
 let activeCategory = 'All';
