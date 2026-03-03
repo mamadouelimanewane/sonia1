@@ -3,61 +3,54 @@
    ========================================================================== */
 
 const PRODUCTS = [
-  // HAIR / LUXURY WIGS
+  // CHEVELURE / MECHES
   {
     id: 1,
-    category: "Hair",
-    name: "Pure Indian Raw — Bone Straight",
+    category: "Chevelure",
+    name: "Pure Indian Raw — Lisse Soyeux",
     price: 185000,
-    img: "https://images.unsplash.com/photo-1595475884196-27382d8c3639?q=80&w=600&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=600&auto=format&fit=crop"
   },
   {
     id: 2,
-    category: "Hair",
+    category: "Chevelure",
     name: "Vietnamese Super Double Drawn",
-    price: 225000,
-    img: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    id: 3,
-    category: "Hair",
-    name: "Closure 5x5 HD Lace — 18 inch",
-    price: 95000,
-    img: "https://images.unsplash.com/photo-1595475884196-27382d8c3639?q=80&w=600&auto=format&fit=crop"
+    price: 245000,
+    img: "https://images.unsplash.com/photo-1595152431003-7cb7f5bc6572?q=80&w=600&auto=format&fit=crop"
   },
 
-  // BAGS / MAROQUINERIE
+  // LINGERIE
+  {
+    id: 7,
+    category: "Lingerie",
+    name: "Ensemble Soie — Rouge Crimson",
+    price: 45000,
+    img: "https://images.unsplash.com/photo-1582533561751-ef6f6ab93a2e?q=80&w=600&auto=format&fit=crop"
+  },
+
+  // ROBES
+  {
+    id: 10,
+    category: "Robes",
+    name: "Robe de Gala — Satin Noir",
+    price: 125000,
+    img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=600&auto=format&fit=crop"
+  },
+
+  // ACCESSOIRES / SACS
   {
     id: 5,
-    category: "Bags",
-    name: "Safari Croco Tote Bag",
+    category: "Accessoires",
+    name: "Sac Safari Croco — Émeraude",
     price: 85000,
     img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=600&auto=format&fit=crop"
   },
   {
-    id: 6,
-    category: "Bags",
-    name: "Almadies Night Clutch",
-    price: 65000,
-    img: "https://images.unsplash.com/photo-1566150905458-1bf1fd113f0d?q=80&w=600&auto=format&fit=crop"
-  },
-
-  // SHOES
-  {
-    id: 9,
-    category: "Shoes",
-    name: "Luxury Silk Stiletto — Gold",
-    price: 75000,
-    img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=600&auto=format&fit=crop"
-  },
-
-  // BEAUTY
-  {
-    id: 8,
-    category: "Beauty",
-    name: "Melanin Glow Foundation",
-    price: 35000,
-    img: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?q=80&w=600&auto=format&fit=crop"
+    id: 11,
+    category: "Accessoires",
+    name: "Parure de Bijoux — Or 18K Style",
+    price: 55000,
+    img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop"
   }
 ];
 
@@ -87,7 +80,7 @@ function renderProducts(filter = 'All') {
                 <p class="product-category">${p.category}</p>
                 <h3 class="product-name">${p.name}</h3>
                 <p class="product-price">${p.price.toLocaleString()} FCFA</p>
-                <button class="btn btn-outline-small" onclick="addToCart(${p.id})">Add to cart</button>
+                <button class="btn btn-outline-small" onclick="addToCart(${p.id})">Ajouter au panier</button>
             </div>
         </div>
     `).join('');
@@ -113,8 +106,8 @@ function updateCartUI() {
   if (cart.length === 0) {
     body.innerHTML = `
             <div style="text-align:center; padding:100px 0;">
-                <p style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom:10px;">Your cart is empty.</p>
-                <p style="color:#999; font-size:0.9rem;">Start browsing our collections.</p>
+                <p style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom:10px;">Votre panier est vide.</p>
+                <p style="color:#999; font-size:0.9rem;">Commencez à parcourir nos collections d'exception.</p>
             </div>`;
     if (footer) footer.style.display = 'none';
   } else {
