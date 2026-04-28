@@ -108,7 +108,11 @@ a {
 .nav-list {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 20px;
+}
+
+.nav-list > li {
+    white-space: nowrap;
 }
 
 .nav-list > li > a {
@@ -118,6 +122,7 @@ a {
     text-transform: uppercase;
     transition: color 0.2s ease;
     padding-bottom: 5px;
+    white-space: nowrap;
 }
 
 .nav-list > li > a:hover {
