@@ -23,7 +23,7 @@ const heroRegex = /<!-- Hero Section -->\s*<section class="hero">[\s\S]*?<\/sect
 pages.forEach(page => {
     const pageContent = `
     <!-- Page Header -->
-    <section class="page-header" style="padding: 150px 20px; text-align: center; background-color: #fbf8f1;">
+    <section class="page-header" style="padding: 60px 20px; text-align: center; background-color: #fbf8f1;">
         <h2 style="font-family: 'Cinzel', serif; font-size: 3rem; color: #d4af37;">${page.title}</h2>
         <p style="margin-top: 20px; font-size: 1.1rem; color: #1a1a1a;">Découvrez notre sélection de ${page.title.toLowerCase()}.</p>
     </section>
