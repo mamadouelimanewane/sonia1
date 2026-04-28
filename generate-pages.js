@@ -32,6 +32,8 @@ pages.forEach(page => {
     let newHtml = indexHtml.replace(heroRegex, pageContent);
     // update title
     newHtml = newHtml.replace('<title>TorodoAvenue - La Collection Bal de Promo 2026</title>', `<title>TorodoAvenue - ${page.title}</title>`);
+    // update section title
+    newHtml = newHtml.replace('<h2 class="section-title">NOUVEAUTÉS</h2>', `<h2 class="section-title">${page.title.toUpperCase()}</h2>`);
     
     fs.writeFileSync(page.file, newHtml);
     console.log(`Created ${page.file}`);
