@@ -1,12 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Simple console log to verify script is loaded
     console.log('TorodoAvenue script loaded.');
 
-    // Add interactivity to buttons if needed
-    const menuBtn = document.querySelector('.nav-left button[aria-label="Menu"]');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            alert('Menu feature coming soon!');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+    }
+
+    if (closeMenuBtn && mobileMenu) {
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
         });
     }
 
@@ -14,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (shopBtn) {
         shopBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Redirecting to shop...');
+            alert('Redirection vers la boutique...');
         });
     }
 });
